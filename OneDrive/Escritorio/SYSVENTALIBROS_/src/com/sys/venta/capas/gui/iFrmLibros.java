@@ -430,7 +430,7 @@ public class iFrmLibros extends javax.swing.JInternalFrame {
         int fila;
         fila = tbLista.getSelectedRow();
         int id,idcategoria, stock;
-        String autor, nombre, descripcion;
+        String autor, nombre, descripcion,categoria;
         double precio;
         logicCategoria = new CategoriaLogic();
        
@@ -439,13 +439,14 @@ public class iFrmLibros extends javax.swing.JInternalFrame {
         if(fila>=0){
             //Columnas: ID - NOMBRE - CLAVE
             //Posiciones: 0 - 1 - 2
-            id = Integer.parseInt(tbLista.getValueAt(fila, x++)+"");
-            idcategoria = Integer.parseInt(tbLista.getValueAt(fila, x++)+"");
-            nombre = tbLista.getValueAt(fila, x++)+"";
-            autor = tbLista.getValueAt(fila, x++)+"";
-            descripcion = tbLista.getValueAt(fila, x++)+"";
-            stock = Integer.parseInt(tbLista.getValueAt(fila, x++)+"");
-            precio =Double.parseDouble(tbLista.getValueAt(fila, x++)+"") ;
+            id = Integer.parseInt(tbLista.getValueAt(fila, 0)+"");
+            idcategoria = Integer.parseInt(tbLista.getValueAt(fila, 1)+"");
+            categoria = tbLista.getValueAt(fila, 2)+"";
+            nombre = tbLista.getValueAt(fila, 3)+"";
+            autor = tbLista.getValueAt(fila, 4)+"";
+            descripcion = tbLista.getValueAt(fila, 5)+"";
+            stock = Integer.parseInt(tbLista.getValueAt(fila,6)+"");
+            precio =Double.parseDouble(tbLista.getValueAt(fila, 7)+"") ;
        
             txtID.setText(id+"");
             txtNombre.setText(nombre);

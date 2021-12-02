@@ -76,7 +76,7 @@ public class iFrmVenta extends javax.swing.JInternalFrame {
         btnEliminar = new javax.swing.JButton();
         btnReporte = new javax.swing.JButton();
 
-        setTitle("Mantenedor de Profesores");
+        setTitle("Mantenedor de Venta");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }

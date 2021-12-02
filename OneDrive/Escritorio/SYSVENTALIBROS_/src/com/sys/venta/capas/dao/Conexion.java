@@ -20,10 +20,10 @@ public class Conexion {
     
     ResourceBundle rb = ResourceBundle.getBundle("com.sys.venta.capas.dao.cnx");
     
-    private static String url="jdbc:mysql://localhost:3306/dbventalibros";
+    private static String url="jdbc:mysql://lpjava.cepy5qnydcf5.us-east-1.rds.amazonaws.com:3306/lpjava1611_grupo01";
     private static String urlSQL="jdbc:sqlserver://localhost:1433;databaseName=demo;user=sa;password=Sise2021$;";
-    private static String usuario="root";
-    private static String clave="root";
+    private static String usuario="admin";
+    private static String clave="Sise2021$";
     private static String driver="com.mysql.cj.jdbc.Driver";
     private static String driverSQL="com.microsoft.sqlserver.jdbc.SQLServerDriver";
     
