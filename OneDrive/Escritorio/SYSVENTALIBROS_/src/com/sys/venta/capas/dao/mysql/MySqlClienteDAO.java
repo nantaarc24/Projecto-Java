@@ -29,7 +29,7 @@ public class MySqlClienteDAO implements IClienteDAO{
     final String INSERT = "{call pa_insertar_clientes (?,?,?,?,?)}";
     final String UPDATE = "{call pa_modificar_clientes(?,?,?,?,?,?)}";
     final String DELETE = "{call pa_eliminar_clientes(?)}";
-    final String BUSQUEDA = "{call pa_buscar_clientes_apellidos(?)}";
+    final String BUSQUEDA = "{call pa_buscar_clientes(?)}";
 
     private Connection cn;
 
