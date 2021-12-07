@@ -623,9 +623,7 @@ public class iFrmLibros extends javax.swing.JInternalFrame {
                 txtAutor.getText(),
                 txtDescripcion.getText(),
                 Integer.parseInt(txtStock.getText()),
-                Double.parseDouble(txtPrecio.getText())
-                
-               
+                Double.parseDouble(txtPrecio.getText())                              
             );
     }
     

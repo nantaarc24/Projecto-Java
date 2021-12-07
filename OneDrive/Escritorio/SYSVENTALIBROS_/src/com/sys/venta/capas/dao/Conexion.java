@@ -20,7 +20,7 @@ public class Conexion {
     
     ResourceBundle rb = ResourceBundle.getBundle("com.sys.venta.capas.dao.cnx");
     
-    private static String url="jdbc:mysql://lpjava.cepy5qnydcf5.us-east-1.rds.amazonaws.com:3306/lpjava1611_grupo01";
+        private static String url="jdbc:mysql://lpjava.cepy5qnydcf5.us-east-1.rds.amazonaws.com:3306/lpjava1611_grupo01";
     private static String urlSQL="jdbc:sqlserver://localhost:1433;databaseName=demo;user=sa;password=Sise2021$;";
     private static String usuario="admin";
     private static String clave="Sise2021$";
