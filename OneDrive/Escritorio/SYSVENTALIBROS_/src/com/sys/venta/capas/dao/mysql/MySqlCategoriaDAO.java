@@ -20,7 +20,7 @@ public class MySqlCategoriaDAO implements ICategoriaDAO{
     final String INSERT = "{call pa_insertar_categoria(?,?)}";
     final String UPDATE = "{call pa_modificar_categoria(?,?,?)}";
     final String DELETE = "{call pa_eliminar_categoria(?)}";
-    final String BUSQUEDA = "{call pa_buscar_categoria_nombre(?)}";
+    final String BUSQUEDA = "{call pa_buscar_categoria(?)}";
 
     private Connection cn;
 

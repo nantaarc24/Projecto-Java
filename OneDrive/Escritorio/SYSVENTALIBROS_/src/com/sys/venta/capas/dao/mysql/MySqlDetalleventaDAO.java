@@ -10,8 +10,6 @@ import  com.sys.venta.capas.dao.IDetalleventaDAO;
 import  com.sys.venta.capas.entity.Detalleventa;
 import java.sql.CallableStatement;
 import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -171,13 +169,13 @@ public class MySqlDetalleventaDAO implements IDetalleventaDAO{
                 listaNomColumn.add(rsmd.getColumnName(i));
             
         } catch (SQLException ex) {
-            throw new DAOException("Error en SQL", ex);
+            throw new DAOException("Error en SL", ex);
         }finally{
             try{
                 if(rs!=null) rs.close();
                 if(cs!=null) cs.close();
             }catch(SQLException ex){
-                throw new DAOException("Error en SQL", ex);
+                throw new DAOException("Error en S", ex);
             }
         }
         return listaNomColumn;

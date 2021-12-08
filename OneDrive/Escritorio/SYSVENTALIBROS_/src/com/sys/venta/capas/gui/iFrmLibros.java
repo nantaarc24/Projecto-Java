@@ -9,6 +9,8 @@ package com.sys.venta.capas.gui;
 import com.sys.venta.capas.entity.Categoria;
 import com.sys.venta.capas.logic.LibroLogic;
 import com.sys.venta.capas.entity.Libro;
+import com.sys.venta.capas.entity.LibroForm;
+import com.sys.venta.capas.entity.UsuarioForm;
 import com.sys.venta.capas.logic.CategoriaLogic;
 
 import java.util.ResourceBundle;
@@ -402,6 +404,7 @@ public class iFrmLibros extends javax.swing.JInternalFrame {
         logic = new LibroLogic();
         Libro objLibro =  null;
         try {
+            logic.hayInputError(getLibroForm());
             objLibro = getLibro();
             objLibro.setIdlibro(0);
             logic.insertar(objLibro);
@@ -430,7 +433,7 @@ public class iFrmLibros extends javax.swing.JInternalFrame {
         int fila;
         fila = tbLista.getSelectedRow();
         int id,idcategoria, stock;
-        String autor, nombre, descripcion,categoria;
+        String autor, nombre, descripcion;
         double precio;
         logicCategoria = new CategoriaLogic();
        
@@ -439,14 +442,13 @@ public class iFrmLibros extends javax.swing.JInternalFrame {
         if(fila>=0){
             //Columnas: ID - NOMBRE - CLAVE
             //Posiciones: 0 - 1 - 2
-            id = Integer.parseInt(tbLista.getValueAt(fila, 0)+"");
-            idcategoria = Integer.parseInt(tbLista.getValueAt(fila, 1)+"");
-            categoria = tbLista.getValueAt(fila, 2)+"";
-            nombre = tbLista.getValueAt(fila, 3)+"";
-            autor = tbLista.getValueAt(fila, 4)+"";
-            descripcion = tbLista.getValueAt(fila, 5)+"";
-            stock = Integer.parseInt(tbLista.getValueAt(fila,6)+"");
-            precio =Double.parseDouble(tbLista.getValueAt(fila, 7)+"") ;
+            id = Integer.parseInt(tbLista.getValueAt(fila, x++)+"");
+            idcategoria = Integer.parseInt(tbLista.getValueAt(fila, x++)+"");
+            nombre = tbLista.getValueAt(fila, x++)+"";
+            autor = tbLista.getValueAt(fila, x++)+"";
+            descripcion = tbLista.getValueAt(fila, x++)+"";
+            stock = Integer.parseInt(tbLista.getValueAt(fila, x++)+"");
+            precio =Double.parseDouble(tbLista.getValueAt(fila, x++)+"") ;
        
             txtID.setText(id+"");
             txtNombre.setText(nombre);
@@ -623,7 +625,9 @@ public class iFrmLibros extends javax.swing.JInternalFrame {
                 txtAutor.getText(),
                 txtDescripcion.getText(),
                 Integer.parseInt(txtStock.getText()),
-                Double.parseDouble(txtPrecio.getText())                              
+                Double.parseDouble(txtPrecio.getText())
+                
+               
             );
     }
     
@@ -651,5 +655,16 @@ public class iFrmLibros extends javax.swing.JInternalFrame {
        
 //        cbProvincias.setSelectedIndex(0);
 //        cbCarreras.setSelectedIndex(0);
+    }
+    
+       LibroForm getLibroForm() throws Exception{
+        return new LibroForm(
+             txtID.getText(),
+            txtNombre.getText(),
+             txtAutor.getText(),
+             txtDescripcion.getText(),
+             txtStock.getText(),
+             txtPrecio.getText() 
+        );
     }
 }

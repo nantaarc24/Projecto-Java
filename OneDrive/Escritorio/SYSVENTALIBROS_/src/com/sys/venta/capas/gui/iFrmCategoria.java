@@ -6,6 +6,9 @@
 package com.sys.venta.capas.gui;
 
 import com.sys.venta.capas.entity.Categoria;
+import com.sys.venta.capas.entity.CategoriaForm;
+import com.sys.venta.capas.entity.Usuario;
+import com.sys.venta.capas.entity.UsuarioForm;
 import com.sys.venta.capas.logic.CategoriaLogic;
 
 
@@ -301,6 +304,7 @@ public class iFrmCategoria extends javax.swing.JInternalFrame {
         logic = new CategoriaLogic();
         Categoria objCategoria =  null;
         try {
+            logic.hayInputError(getCategoriaForm());
             objCategoria = getCategoria();
             objCategoria.setIdcategoria(0);
             logic.insertar(objCategoria);
@@ -318,6 +322,7 @@ public class iFrmCategoria extends javax.swing.JInternalFrame {
         try {
             logic.modificar(getCategoria());
             JOptionPane.showMessageDialog(null, rb.getString("mensaje_modificacion"));
+            limpiarValores();
             logic.imprimirTB(tbLista);
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
@@ -437,7 +442,13 @@ public class iFrmCategoria extends javax.swing.JInternalFrame {
                
             );
     }
-    
+    CategoriaForm getCategoriaForm() throws Exception{
+        return new CategoriaForm(
+             txtID.getText(),
+            txtNombre.getText(),
+             txtDescripcion.getText() 
+        );
+    }
     //metodos para llenar Combos
     
 //    private void llenarProvinciasCB(){
@@ -470,4 +481,5 @@ public class iFrmCategoria extends javax.swing.JInternalFrame {
 //        cbProvincias.setSelectedIndex(0);
 //        cbCarreras.setSelectedIndex(0);
     }
+    
 }

@@ -15,4 +15,5 @@ import java.util.List;
 public interface IClienteDAO extends GenericDAO<Cliente, Integer>{
     List<String> obtenerNombresColumnas() throws DAOException;
     List<Cliente> obtenerBusqueda(String valor) throws DAOException;
+//    Cliente obtenerCliente  (String valor1) throws DAOException;
 }

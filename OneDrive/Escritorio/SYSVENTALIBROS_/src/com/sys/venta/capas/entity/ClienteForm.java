@@ -7,43 +7,43 @@ package com.sys.venta.capas.entity;
 
 /**
  *
- * @author jhonb
+ * @author Fernando Tapia Arcos
  */
-public class Cliente {
-    private Integer idcliente;
+public class ClienteForm {
+    
+    private String idcliente;
+    private String dni;
     private String nombre;
     private String apellidos;
-    private String dni;
     private String direccion;
     private String telefono;
 
-    public Cliente() {
+    public ClienteForm() {
     }
 
-    public Cliente(Integer idcliente, String nombre, String apellidos, String dni, String direccion, String telefono) {
+    public ClienteForm(String idcliente, String dni, String nombre, String apellidos, String direccion, String telefono) {
         this.idcliente = idcliente;
+        this.dni = dni;
         this.nombre = nombre;
         this.apellidos = apellidos;
-        this.dni = dni;
         this.direccion = direccion;
         this.telefono = telefono;
     }
 
-    public Cliente(String nombre, String apellidos, String dni, String direccion) {
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.dni = dni;
-        this.direccion = direccion;
-    }
-    
-    
-
-    public Integer getIdcliente() {
+    public String getIdcliente() {
         return idcliente;
     }
 
-    public void setIdcliente(Integer idcliente) {
+    public void setIdcliente(String idcliente) {
         this.idcliente = idcliente;
+    }
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
     }
 
     public String getNombre() {
@@ -62,14 +62,6 @@ public class Cliente {
         this.apellidos = apellidos;
     }
 
-    public String getDni() {
-        return dni;
-    }
-
-    public void setDni(String dni) {
-        this.dni = dni;
-    }
-
     public String getDireccion() {
         return direccion;
     }
@@ -86,10 +78,6 @@ public class Cliente {
         this.telefono = telefono;
     }
 
-    @Override
-    public String toString() {
-        return getIdcliente()+ " - " + getNombre()+ " " + getApellidos();
-    }
-
+    
     
 }

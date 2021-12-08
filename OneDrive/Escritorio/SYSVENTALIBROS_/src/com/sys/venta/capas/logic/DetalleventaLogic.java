@@ -54,7 +54,7 @@ public class DetalleventaLogic {
         return getModelo(modelo, dao.obtenerTodos());
     }
     
-    public void imprimirTB(JTable jtable) throws Exception{
+    public void imprimirDetalleTB(JTable jtable) throws Exception{
         jtable.setModel(obtenerTodos());
     }
     

@@ -158,6 +158,15 @@ public class MySqlClienteDAO implements IClienteDAO{
                 rs.getString("telefono")
             );
     }
+    
+    private Cliente getClienteRS(ResultSet rs )throws SQLException{
+        return new Cliente(
+                rs.getString("nombre"),
+                rs.getString("apellidos"),
+                rs.getString("dni"),
+                rs.getString("direccion")
+        );
+    }
 
     @Override
     public List<String> obtenerNombresColumnas() throws DAOException {
@@ -211,5 +220,33 @@ public class MySqlClienteDAO implements IClienteDAO{
         }
         return lista;
     }
-    
+
+//    @Override
+//    public Cliente obtenerCliente(String valor1) throws DAOException {
+////        CallableStatement cs = null;
+////        ResultSet rs = null;
+////      
+////       String [] lista = new String[3];
+////        
+////        try {
+////            cs = cn.prepareCall(BUSQUEDA);
+////            int i=1;
+////            cs.setString(i++, valor1);
+////            rs = cs.executeQuery();
+////            while(rs.next()){
+////                lista[0]=
+////            }
+////        } catch (SQLException ex) {
+////            throw new DAOException("Error en SQL", ex);
+////        }finally{
+////            try{
+////                if(rs!=null) rs.close();
+////                if(cs!=null) cs.close();
+////            }catch(SQLException ex){
+////                throw new DAOException("Error en SQL", ex);
+////            }
+////        }
+////        return "";  
+//    }
+//    
 }

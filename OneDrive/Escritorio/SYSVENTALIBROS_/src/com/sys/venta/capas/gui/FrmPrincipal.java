@@ -169,16 +169,15 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void mniVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniVentaActionPerformed
-        iFrmVenta ifrmInterno = new iFrmVenta();
-        this.add(ifrmInterno);
-        ifrmInterno.show();
+           FrmVenta venta = new FrmVenta();
+           venta.setVisible(true);
        
     }//GEN-LAST:event_mniVentaActionPerformed
 
     private void mniDetalleVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniDetalleVentaActionPerformed
-        iFrmDetalleventa ifrmInterno = new iFrmDetalleventa();
-        this.add(ifrmInterno);
-        ifrmInterno.show();
+//        iFrmDetalleventa ifrmInterno = new iFrmDetalleventa();
+//        this.add(ifrmInterno);
+//        ifrmInterno.show();
 
     }//GEN-LAST:event_mniDetalleVentaActionPerformed
 

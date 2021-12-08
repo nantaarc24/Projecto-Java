@@ -1,33 +1,34 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package com.sys.venta.capas.entity;
 
 /**
  *
- * @author SEBASTIAN
+ * @author Fernando Tapia Arcos
  */
-public class Categoria {
+public class CategoriaForm {
     
-   private Integer idcategoria;
+   private String idcategoria;
    private String nombre;
    private String descripcion;
 
-    public Categoria() {
+    public CategoriaForm() {
     }
 
-    public Categoria(Integer idcategoria, String nombre, String descripcion) {
+    public CategoriaForm(String idcategoria, String nombre, String descripcion) {
         this.idcategoria = idcategoria;
         this.nombre = nombre;
         this.descripcion = descripcion;
     }
 
-    public Integer getIdcategoria() {
+    public String getIdcategoria() {
         return idcategoria;
     }
 
-    public void setIdcategoria(Integer idcategoria) {
+    public void setIdcategoria(String idcategoria) {
         this.idcategoria = idcategoria;
     }
 
@@ -46,12 +47,6 @@ public class Categoria {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-
-    @Override
-    public String toString() {
-       return getIdcategoria()+ " - " + getNombre();
-    }
    
    
-    
 }

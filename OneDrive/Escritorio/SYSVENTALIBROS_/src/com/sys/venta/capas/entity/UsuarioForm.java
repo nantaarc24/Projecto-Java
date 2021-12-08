@@ -9,9 +9,9 @@ package com.sys.venta.capas.entity;
  *
  * @author Fernando Tapia Arcos
  */
-public class Usuario {
+public class UsuarioForm {
     
-    private Integer idusuario;
+    private String idusuario;
     
     private String nombre;
     private String apellidos;
@@ -21,10 +21,16 @@ public class Usuario {
     private String rol;
     private String estado;
 
-    public Usuario() {
+    public UsuarioForm() {
     }
 
-    public Usuario(Integer idusuario, String nombre, String apellidos, String dni, String login, String clave, String rol, String estado) {
+    public UsuarioForm(String login, String clave) {
+        this.login = login;
+        this.clave = clave;
+    }
+
+    
+    public UsuarioForm(String idusuario, String nombre, String apellidos, String dni, String login, String clave, String rol, String estado) {
         this.idusuario = idusuario;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -35,17 +41,11 @@ public class Usuario {
         this.estado = estado;
     }
 
-    public Usuario(String login, String clave) {
-        this.login = login;
-        this.clave = clave;
-    }
-    
-    
-    public Integer getIdusuario() {
+    public String getIdusuario() {
         return idusuario;
     }
 
-    public void setIdusuario(Integer idusuario) {
+    public void setIdusuario(String idusuario) {
         this.idusuario = idusuario;
     }
 
@@ -89,8 +89,6 @@ public class Usuario {
         this.clave = clave;
     }
 
-
-
     public String getRol() {
         return rol;
     }
@@ -105,19 +103,6 @@ public class Usuario {
 
     public void setEstado(String estado) {
         this.estado = estado;
-    }
-    
-    
-
-//    @Override
-//    public String toString() {
-//        return getRol()+ getEstado();
-//    }
-//    
-
-    @Override
-    public String toString() {
-        return getIdusuario()+ " - " + getNombre()+ " " + getApellidos();
     }
     
     

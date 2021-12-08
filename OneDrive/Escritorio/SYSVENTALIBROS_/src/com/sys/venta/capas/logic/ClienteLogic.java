@@ -7,8 +7,11 @@ package com.sys.venta.capas.logic;
 
 import com.sys.venta.capas.dao.IClienteDAO;
 import com.sys.venta.capas.dao.mysql.MySqlDAOManager;
+import com.sys.venta.capas.entity.CategoriaForm;
 import com.sys.venta.capas.entity.Cliente;
+import com.sys.venta.capas.entity.ClienteForm;
 import com.sys.venta.capas.entity.Usuario;
+import com.sys.venta.capas.utils.Utils;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
@@ -135,5 +138,18 @@ public class ClienteLogic {
             }
             
         }
-    }        
+    }
+      
+       //validaciones
+    public void hayInputError(ClienteForm o) throws Exception{
+        
+        //validaciones
+     if(o.getIdcliente().isEmpty() || o.getIdcliente().trim().length()==0) throw new Exception(Utils.getMensaje("el ID ",Utils.NO_VACIO));
+     if(o.getDni().isEmpty() || o.getDni().trim().length()==0) throw new Exception(Utils.getMensaje("el DNI ",Utils.NO_VACIO));
+     if(o.getNombre().isEmpty() || o.getNombre().trim().length()==0) throw new Exception(Utils.getMensaje("el nombre ",Utils.NO_VACIO));
+     if(o.getApellidos().isEmpty() || o.getApellidos().trim().length()==0) throw new Exception(Utils.getMensaje("los apellidos",Utils.NO_VACIO));
+     if(o.getDireccion().isEmpty() || o.getDireccion().trim().length()==0) throw new Exception(Utils.getMensaje("la dirección ",Utils.NO_VACIO));
+     if(o.getTelefono().isEmpty() || o.getTelefono().trim().length()==0) throw new Exception(Utils.getMensaje("el teléfono",Utils.NO_VACIO));
+     
+    } 
 }

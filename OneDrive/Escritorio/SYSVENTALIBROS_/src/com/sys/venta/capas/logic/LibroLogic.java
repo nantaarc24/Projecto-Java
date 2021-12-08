@@ -7,7 +7,10 @@ package com.sys.venta.capas.logic;
 
 import com.sys.venta.capas.dao.ILibroDAO;
 import com.sys.venta.capas.dao.mysql.MySqlDAOManager;
+import com.sys.venta.capas.entity.ClienteForm;
 import com.sys.venta.capas.entity.Libro;
+import com.sys.venta.capas.entity.LibroForm;
+import com.sys.venta.capas.utils.Utils;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
@@ -121,5 +124,17 @@ public class LibroLogic {
             modeloCB.addElement(o);
         }
         return modeloCB;
+    }
+     
+        public void hayInputError(LibroForm o) throws Exception{
+        
+        //validaciones
+     if(o.getIdlibro().isEmpty() || o.getIdlibro().trim().length()==0) throw new Exception(Utils.getMensaje("el ID ",Utils.NO_VACIO));
+     if(o.getNombre().isEmpty() || o.getNombre().trim().length()==0) throw new Exception(Utils.getMensaje("el nombre ",Utils.NO_VACIO));
+     if(o.getAutor().isEmpty() || o.getAutor().trim().length()==0) throw new Exception(Utils.getMensaje("el autor",Utils.NO_VACIO));
+     if(o.getDescripcion().isEmpty() || o.getDescripcion().trim().length()==0) throw new Exception(Utils.getMensaje("la descripción ",Utils.NO_VACIO));
+     if(o.getStock().isEmpty() || o.getStock().trim().length()==0) throw new Exception(Utils.getMensaje("el stock",Utils.NO_VACIO));
+     if(o.getPrecio().isEmpty() || o.getPrecio().trim().length()==0) throw new Exception(Utils.getMensaje("el precio",Utils.NO_VACIO));
+     
     }
 }

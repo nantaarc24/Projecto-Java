@@ -10,7 +10,7 @@ import  com.sys.venta.capas.dao.ILibroDAO;
 import  com.sys.venta.capas.entity.Libro;
 import java.sql.CallableStatement;
 import java.sql.Connection;
-import java.sql.Date;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -25,9 +25,7 @@ import java.util.List;
 public class MySqlLibroDAO implements ILibroDAO{
     
     final String GETALL = "{call pa_listar_libros()}";
-    final String COLUMNAS = "Select lib.idlibro,lib.idcategoriafk, cat.nombre AS categoria, lib.nombre, lib.autor,lib.descripcion,lib.stock,lib.precio\n" +
-"from libros AS lib\n" +
-"inner join categoria AS cat on (lib.idcategoriafk = cat.idcategoria) LIMIT 0;";
+    final String COLUMNAS = "{call columnas_libros()}";
     final String INSERT = "{call pa_insertar_libros(?,?,?,?,?,?)}";
     final String UPDATE = "{call pa_modificar_libros(?,?,?,?,?,?,?)}";
     final String DELETE = "{call pa_eliminar_libros(?)}";
@@ -167,13 +165,13 @@ public class MySqlLibroDAO implements ILibroDAO{
 
     @Override
     public List<String> obtenerNombresColumnas() throws DAOException {
-        PreparedStatement ps = null;
+        CallableStatement ps = null;
         ResultSet rs = null;
         ResultSetMetaData rsmd = null;
         List<String> listaNomColumn = new ArrayList<>();
         
         try {
-            ps = cn.prepareStatement(COLUMNAS);
+            ps = cn.prepareCall(COLUMNAS);
             rs = ps.executeQuery();
             rsmd = rs.getMetaData();
             for(int i=1; i<=rsmd.getColumnCount();i++)

@@ -5,6 +5,7 @@
  */
 package com.sys.venta.capas.gui;
 import com.sys.venta.capas.entity.Usuario;
+import com.sys.venta.capas.entity.UsuarioForm;
 import com.sys.venta.capas.logic.UsuarioLogic;
 import java.awt.Color;
 import java.util.concurrent.TimeUnit;
@@ -439,6 +440,7 @@ public class FrmUsuario extends javax.swing.JFrame {
         logic=new UsuarioLogic();
         Usuario objUsuario = null;
         try {
+            logic.hayInputError(getUsuarioForm());
             objUsuario = getUsuario();
             objUsuario.setIdusuario(0);
             logic.insertar(objUsuario);
@@ -963,6 +965,26 @@ Usuario getUsuario(){
          
      );
 }
+
+    UsuarioForm getUsuarioForm() throws Exception{
+        return new UsuarioForm(
+             txtid.getText(),
+            txtnombre.getText(),
+             txtapellidos.getText(),
+             txtdni.getText(),
+             txtusuario.getText(),
+             txtclave.getText(),
+             cbrol.getSelectedItem()+"",
+             cbestado.getSelectedItem()+"" 
+        );
+    }
+    
+       UsuarioForm getLoginForm() throws Exception{
+        return new UsuarioForm(
+             txtusuario.getText(),
+             txtclave.getText()
+        );
+    }
 
 private void limpiarValores(){
          txtid.setText("");

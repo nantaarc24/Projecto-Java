@@ -8,6 +8,9 @@ package com.sys.venta.capas.logic;
 import com.sys.venta.capas.dao.ICategoriaDAO;
 import com.sys.venta.capas.dao.mysql.MySqlDAOManager;
 import com.sys.venta.capas.entity.Categoria;
+import com.sys.venta.capas.entity.CategoriaForm;
+import com.sys.venta.capas.entity.UsuarioForm;
+import com.sys.venta.capas.utils.Utils;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
@@ -135,4 +138,13 @@ public class CategoriaLogic {
             
         }
     }
+    
+    //validaciones
+    public void hayInputError(CategoriaForm o) throws Exception{
+        
+        //validaciones
+     if(o.getIdcategoria().isEmpty() || o.getIdcategoria().trim().length()==0) throw new Exception(Utils.getMensaje("el ID ",Utils.NO_VACIO));
+     if(o.getNombre().isEmpty() || o.getNombre().trim().length()==0) throw new Exception(Utils.getMensaje("el nombre ",Utils.NO_VACIO));
+     if(o.getDescripcion().isEmpty() || o.getDescripcion().trim().length()==0) throw new Exception(Utils.getMensaje("la descripcion",Utils.NO_VACIO));
+    } 
 }

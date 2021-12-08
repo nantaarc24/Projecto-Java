@@ -7,6 +7,8 @@ package com.sys.venta.capas.gui;
 
 import com.sys.venta.capas.logic.ClienteLogic;
 import com.sys.venta.capas.entity.Cliente;
+import com.sys.venta.capas.entity.ClienteForm;
+import com.sys.venta.capas.entity.UsuarioForm;
 
 import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
@@ -377,6 +379,7 @@ public class iFrmClientes extends javax.swing.JInternalFrame {
         logic = new ClienteLogic();
         Cliente objCliente =  null;
         try {
+            logic.hayInputError(getClienteForm());
             objCliente = getCliente();
             objCliente.setIdcliente(0);
             logic.insertar(objCliente);
@@ -624,5 +627,15 @@ public class iFrmClientes extends javax.swing.JInternalFrame {
        
 //        cbProvincias.setSelectedIndex(0);
 //        cbCarreras.setSelectedIndex(0);
+    }
+    ClienteForm getClienteForm() throws Exception{
+        return new ClienteForm(
+             txtID.getText(),
+            txtDni.getText(),
+             txtNombre.getText(),
+             txtApellidos.getText(),
+             txtDireccion.getText(),
+             txtTelefono.getText()
+        );
     }
 }
